@@ -1,4 +1,4 @@
-import AlignArrowDownIcon from './icons/AlignArrowDownIcon'
+import {ReactNode} from 'react'
 import MaximizeIcon from './icons/Maximize2Icon'
 
 function Editor() {
@@ -17,15 +17,16 @@ function Editor() {
         wanted to travel, but I was lacking the necessary funds.
       </p>
       <p>
-        This was California. You can get LSD fresh-made from Stanford
-        University. You can go sleep on the beach at night with your girlfriends
-        and whatever meaningful others. You could … I didn’t really realize how
-        different California was than the middle of America, and even to some
-        extent the East Coast, until I traveled to those places. I’d never been
-        to any of those places until my early twenties. California has a sense
-        of experimentation about it, and a sense of openness about it—openness
-        and new possibility—that I really didn’t appreciate till I went to other
-        places.
+        This was <AdditionDiffSpan>California</AdditionDiffSpan>. You can get
+        LSD fresh-made from Stanford University. You can go sleep on the beach
+        at night with your girlfriends and whatever meaningful others. You could
+        … I didn’t really realize how different California was than the middle
+        of America, and even to some extent the East Coast, until I traveled to
+        those places. I’d never been to any of those places until my early
+        twenties. California has a sense of{' '}
+        <AdditionDiffSpan>experimentation about it</AdditionDiffSpan>, and a
+        sense of openness about it—openness and new possibility—that I really
+        didn’t appreciate till I went to other places.
       </p>
 
       <CollapsedDiffPlaceholder lineCount={4} />
@@ -73,6 +74,12 @@ function CollapsedDiffPlaceholder({lineCount}: {lineCount: number}) {
         <MaximizeIcon />
       </div>
     </div>
+  )
+}
+
+function AdditionDiffSpan({children}: {children: ReactNode}) {
+  return (
+    <span className="rounded-sm bg-green-100 text-green-700">{children}</span>
   )
 }
 
