@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply text-gray-700;
+  -webkit-font-smoothing: antialiased;
+}
+
+.prose > * {
+  @apply py-2;
+  @apply px-8;
+}
+
+.prose .hidden-diff {
+  @apply p-1;
+}
