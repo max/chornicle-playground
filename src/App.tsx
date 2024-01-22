@@ -1,3 +1,4 @@
+import ChangeMeter from './components/ChangeMeter'
 import Editor from './components/Editor'
 import LeftSidebar from './components/LeftSidebar'
 import RightSidebar from './components/RightSidebar'
@@ -24,6 +25,14 @@ function App() {
             <RightSidebar />
           </div>
         </div>
+      </div>
+
+      <div className="fixed right-4 top-[240px] flex flex-col gap-4">
+        <ChangeMeter size={4} />
+        <ChangeMeter size={3} />
+        <ChangeMeter size={1} />
+        <ChangeMeter size={2} />
+        <ChangeMeter size={4} />
       </div>
     </div>
   )

@@ -24,9 +24,11 @@ function Editor() {
         of America, and even to some extent the East Coast, until I traveled to
         those places. I’d never been to any of those places until my early
         twenties. California has a sense of{' '}
-        <AdditionDiffSpan>experimentation about it</AdditionDiffSpan>, and a
-        sense of openness about it—openness and new possibility—that I really
-        didn’t appreciate till I went to other places.
+        <AdditionDiffSpan deletion={true}>
+          experimentation about it
+        </AdditionDiffSpan>
+        , and a sense of openness about it—openness and new possibility—that I
+        really didn’t appreciate till I went to other places.
       </p>
 
       <CollapsedDiffPlaceholder lineCount={4} />
@@ -67,7 +69,7 @@ function Editor() {
 
 function CollapsedDiffPlaceholder({lineCount}: {lineCount: number}) {
   return (
-    <div className="hidden-diff shadow-inner-sm flex items-center justify-between gap-1 border-b border-t bg-gray-100 text-xs text-gray-500">
+    <div className="hidden-diff flex items-center justify-between gap-1 border-b border-t bg-gray-100 text-xs text-gray-500 shadow-inner-sm">
       <div></div>
       <div>{lineCount} lines hidden</div>
       <div className="text-gray-400">
@@ -77,9 +79,21 @@ function CollapsedDiffPlaceholder({lineCount}: {lineCount: number}) {
   )
 }
 
-function AdditionDiffSpan({children}: {children: ReactNode}) {
+function AdditionDiffSpan({
+  children,
+  deletion
+}: {
+  children: ReactNode
+  deletion?: boolean
+}) {
   return (
-    <span className="rounded-sm bg-green-100 text-green-700">{children}</span>
+    <>
+      <span
+        className={`rounded-sm ${deletion && 'border-r-4 border-r-red-300'} bg-green-100 text-green-700`}
+      >
+        {children}
+      </span>
+    </>
   )
 }
 
