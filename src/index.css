@@ -7,9 +7,22 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+a:link,
+a:visited {
+  @apply text-blue-600;
+}
+
+input {
+  @apply border;
+  @apply px-1;
+  @apply py-0.5;
+  @apply rounded;
+  @apply w-full;
+}
+
 .prose > * {
-  @apply py-2;
   @apply px-8;
+  @apply py-2;
 }
 
 .prose .hidden-diff {
