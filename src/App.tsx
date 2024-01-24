@@ -1,4 +1,5 @@
 import ChangeMeter from './components/ChangeMeter'
+import DraftList from './components/DraftList'
 import Editor from './components/Editor'
 import LeftSidebar from './components/LeftSidebar'
 import RightSidebar from './components/RightSidebar'
@@ -10,6 +11,10 @@ function App() {
       <div className="flex h-full flex-col">
         <div className="flex-none border-b">
           <Toolbar />
+        </div>
+
+        <div className="border-b border-t bg-gray-100 shadow-inner-sm">
+          <DraftList />
         </div>
 
         <div className="flex flex-1">
