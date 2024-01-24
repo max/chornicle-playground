@@ -1,3 +1,4 @@
+import Conversation from './Conversation'
 import Editor from './Editor'
 
 function PullRequestExperiment() {
@@ -15,21 +16,7 @@ function PullRequestExperiment() {
           </h1>
 
           <div>
-            <p>
-              <span className="bold">Geoffrey Litt:</span> I spent some time
-              this morning rewording the introduction as well as some open heart
-              surgery on the order of arguments. What do you think?
-            </p>
-
-            <p className="text-right">
-              <span className="bold">Max Schoening:</span> Sure, that can work.
-              It's genuinely one of the best things.
-            </p>
-
-            <div>
-              <input type="text" placeholder="Reply..." />
-            </div>
-            <button>Comment</button>
+            <Conversation />
           </div>
         </div>
       </div>
