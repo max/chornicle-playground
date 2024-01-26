@@ -9,7 +9,6 @@ import WriteNoteIcon from './icons/WriteNoteIcon'
 import {useState} from 'react'
 import Avatar from './Avatar'
 import DotsHorizontalIcon from './icons/DotsHorizontal'
-import Maximize2Icon from './icons/Maximize2Icon'
 import WindowExpandIcon from './icons/WindowExpandIcon'
 
 function PullRequestExperiment() {
