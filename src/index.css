@@ -9,15 +9,21 @@ body {
 
 a:link,
 a:visited {
+  @apply font-bold;
   @apply text-blue-600;
 }
 
-input {
+[type='text'] {
+  @apply appearance-none;
   @apply border;
   @apply px-1;
   @apply py-0.5;
   @apply rounded;
   @apply w-full;
+}
+
+[type='text']:focus {
+  @apply outline-none;
 }
 
 .prose > * {
