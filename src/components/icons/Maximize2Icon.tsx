@@ -1,4 +1,4 @@
-function MaximizeIcon() {
+function Maximize2Icon() {
   return (
     <svg
       width="24"
@@ -39,4 +39,4 @@ function MaximizeIcon() {
   )
 }
 
-export default MaximizeIcon
+export default Maximize2Icon
