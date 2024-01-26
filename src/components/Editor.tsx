@@ -1,5 +1,5 @@
 import {ReactNode} from 'react'
-import MaximizeIcon from './icons/Maximize2Icon'
+import Maximize2Icon from './icons/Maximize2Icon'
 
 function Editor({className}: {className?: string}) {
   return (
@@ -75,7 +75,7 @@ function CollapsedDiffPlaceholder({lineCount}: {lineCount: number}) {
       <div></div>
       <div>{lineCount} lines hidden</div>
       <div className="text-gray-400">
-        <MaximizeIcon />
+        <Maximize2Icon />
       </div>
     </div>
   )
