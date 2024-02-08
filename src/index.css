@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 body {
-  @apply text-gray-700;
+  @apply text-neutral-700;
+  @apply text-base;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -26,11 +27,16 @@ a:visited {
   @apply outline-none;
 }
 
-.prose > * {
+.prose {
+  font-family: Merriweather;
+  font-size: 16px;
+}
+
+/* .prose > * {
   @apply px-8;
   @apply py-2;
 }
 
 .prose .hidden-diff {
   @apply p-1;
-}
+} */
