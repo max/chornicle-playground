@@ -9,7 +9,10 @@ import {AnimatePresence, motion} from 'framer-motion'
 import Markdown from 'react-markdown'
 
 const PAGE_OFFSET = 20
-const PAGES = [{name: 'Main'}, {name: "Geoffrey's Edit"}]
+const PAGES = [
+  {id: 1, name: 'Main'},
+  {id: 2, name: "Geoffrey's Edit"}
+]
 const SCALE_FACTOR = 0.05
 
 function move(array: any[], moveIndex: number, toIndex: number) {
@@ -101,7 +104,7 @@ function PageStack() {
               zIndex: PAGES.length - index
             }}
             className="absolute h-[1000px] w-[800px] origin-left rounded bg-white shadow"
-            key={index}
+            key={page.id}
             ref={constraintsRef}
             whileDrag={{rotate: 2}}
             drag={canDrag ? 'x' : false}
