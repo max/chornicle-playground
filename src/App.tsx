@@ -39,12 +39,13 @@ function move(array: any[], moveIndex: number, toIndex: number) {
 
 const SAMPLE_TEXT = `# Copy of Embark demo email
 
+\`\`\`
 subject: Embark travel planner demo
 to: user@user.com
 cc: geoffrey, paul, alex (for reply purposes)
+\`\`\`
 
-Hi {name},
-
+Hi {name},  
 Thanks for reaching out! We'd love for you to try Embark, our flexible outliner for travel planning.
 
 Sorry that it took us a while to get back to you. If you're wondering "What is Embark again?", [the essay](https://www.inkandswitch.com/embark/) might help refresh your memory.
@@ -58,11 +59,9 @@ Before you dive in, a disclaimer: **Embark is a research prototype, not a produc
 
 OK, if you're still here after that disclaimer, here's the process to try Embark!
 
-**1. Watch the [tutorial video](https://www.loom.com/share/6f40f0c83de24675ab76c7b274f9c447?sid=bf17e83a-da73-4f0e-92bb-6ddddad34cbc)**
-
-**2. Access the demo: [Embark Demo](https://secret-embark-demo.vercel.app)**
-
-**3. Share your feedback!**
+1. **Watch the [tutorial video](https://www.loom.com/share/6f40f0c83de24675ab76c7b274f9c447?sid=bf17e83a-da73-4f0e-92bb-6ddddad34cbc)**
+2. **Access the demo: [Embark Demo](https://secret-embark-demo.vercel.app)**
+3. **Share your feedback!**
 
 Please reply-all to this email and let us know your thoughts or questions.
 
@@ -70,12 +69,12 @@ The most helpful feedback would be ways that you found Embark valuable or unhelp
 
 Your thoughts will help inform our future work. While we don't plan to iterate on Embark specifically, we are planning to incorporate an improved version of the ideas into our upcoming work on malleable software.
 
-Thanks so much!
+Thanks so much!  
 Paul, Geoffrey, Alex, and the Ink & Switch team`
 
 function Page() {
   return (
-    <div className="prose relative h-full overflow-hidden p-4">
+    <div className="prose h-full w-full overflow-scroll p-4">
       <Markdown>{SAMPLE_TEXT}</Markdown>
     </div>
   )
