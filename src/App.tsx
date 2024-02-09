@@ -111,9 +111,15 @@ function PageStack() {
             dragSnapToOrigin
             dragElastic={0.8}
             onDragStart={() => setShowLabels(true)}
-            onDragEnd={() => {
+            onDragEnd={(event, info) => {
               setShowLabels(false)
-              moveToEnd(index)
+              if (Math.abs(info.point.x) > 1500) {
+                moveToEnd(index)
+              }
+
+              if (Math.abs(info.point.x) > 2000) {
+                alert('Foo')
+              }
             }}
           >
             <AnimatePresence>
