@@ -3,7 +3,7 @@
 // import PullRequestExperiment from './components/PullRequestExperiment'
 // import HistoryExperiment from './components/HistoryExperiment'
 
-import {useRef, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import Screen from './components/Screen.tsx'
 import {AnimatePresence, motion} from 'framer-motion'
 import Markdown from 'react-markdown'
@@ -84,6 +84,7 @@ function Page() {
 function PageStack() {
   const [pages, setPages] = useState(PAGES)
   const [showLabels, setShowLabels] = useState(false)
+  const [sideBySide, setSideBySide] = useState(false)
 
   useHotkeys('ctrl+x', () => {
     moveToEnd(0)
@@ -108,6 +109,7 @@ function PageStack() {
               zIndex: PAGES.length - index
             }}
             className="absolute h-[1000px] w-[800px] origin-left rounded bg-white shadow"
+            data-pageid={page.id}
             key={page.id}
             ref={constraintsRef}
             whileDrag={{rotate: 2}}
@@ -117,12 +119,30 @@ function PageStack() {
             onDragStart={() => setShowLabels(true)}
             onDragEnd={(event, info) => {
               setShowLabels(false)
-              if (Math.abs(info.point.x) > 1500) {
-                moveToEnd(index)
-              }
-
-              if (Math.abs(info.point.x) > 2000) {
-                alert('Foo')
+              const currentPageRect = (
+                event.target as HTMLElement
+              ).getBoundingClientRect()
+              const windowWidth = window.innerWidth
+              if (currentPageRect.left > windowWidth - 48) {
+                setSideBySide(true)
+              } else {
+                const intersects = pages.some((_, pageIndex) => {
+                  if (pageIndex === index) return false // Skip self
+                  const pageElement = document.querySelector(
+                    `[data-pageid="${pages[pageIndex].id}"]`
+                  )
+                  if (!pageElement) return false
+                  const rect = pageElement.getBoundingClientRect()
+                  return (
+                    currentPageRect.right > rect.left &&
+                    currentPageRect.left < rect.right &&
+                    currentPageRect.bottom > rect.top &&
+                    currentPageRect.top < rect.bottom
+                  )
+                })
+                if (!intersects) {
+                  moveToEnd(index)
+                }
               }
             }}
           >
