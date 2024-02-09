@@ -7,6 +7,7 @@ import {useRef, useState} from 'react'
 import Screen from './components/Screen.tsx'
 import {AnimatePresence, motion} from 'framer-motion'
 import Markdown from 'react-markdown'
+import {useHotkeys} from 'react-hotkeys-hook'
 
 const PAGE_OFFSET = 20
 const PAGES = [
@@ -83,6 +84,10 @@ function Page() {
 function PageStack() {
   const [pages, setPages] = useState(PAGES)
   const [showLabels, setShowLabels] = useState(false)
+
+  useHotkeys('ctrl+x', () => {
+    moveToEnd(0)
+  })
 
   const moveToEnd = (from: number) => {
     setPages(move(pages, from, pages.length - 1))
