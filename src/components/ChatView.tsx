@@ -1,9 +1,9 @@
-import {nanoid} from 'nanoid'
-import {useCallback, useState} from 'react'
-import CodeMirror from '@uiw/react-codemirror'
-import {slashCommands} from '../plugins/slashCommands'
 import {markdown, markdownLanguage} from '@codemirror/lang-markdown'
 import {languages} from '@codemirror/language-data'
+import CodeMirror from '@uiw/react-codemirror'
+import {nanoid} from 'nanoid'
+import {useCallback, useState} from 'react'
+import {slashCommands} from '../plugins/slashCommands'
 
 const completions = [
   {label: '@adam'},
@@ -33,7 +33,7 @@ const itemsFixture: Item[] = [
 function ItemComposer({onSubmit}: {onSubmit: (item: Item) => void}) {
   const [newItem, setNewItem] = useState<string>('')
 
-  const onChange = useCallback((val, viewUpdate) => {
+  const onChange = useCallback((val: string) => {
     setNewItem(val)
   }, [])
 
