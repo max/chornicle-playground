@@ -34,3 +34,22 @@ a:visited {
 .prose .hidden-diff {
   @apply p-1;
 }
+
+.history {
+  @apply relative;
+}
+
+.history::before {
+  @apply bg-neutral-300;
+  @apply absolute;
+  border-radius: 3px;
+  bottom: 0;
+  content: '';
+  left: 7px;
+  top: 8px;
+  width: 2px;
+}
+
+.history-item {
+  @apply relative;
+}
