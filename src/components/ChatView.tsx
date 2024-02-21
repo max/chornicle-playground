@@ -2,6 +2,8 @@ import {nanoid} from 'nanoid'
 import {useCallback, useState} from 'react'
 import CodeMirror from '@uiw/react-codemirror'
 import {slashCommands} from '../plugins/slashCommands'
+import {markdown, markdownLanguage} from '@codemirror/lang-markdown'
+import {languages} from '@codemirror/language-data'
 
 const completions = [
   {label: '@adam'},
@@ -59,7 +61,10 @@ function ItemComposer({onSubmit}: {onSubmit: (item: Item) => void}) {
           lineNumbers: false
         }}
         className="rounded border-none bg-white shadow"
-        extensions={[slashCommands(completions)]}
+        extensions={[
+          markdown({base: markdownLanguage, codeLanguages: languages}),
+          slashCommands(completions)
+        ]}
         onChange={onChange}
         value={newItem}
       />
