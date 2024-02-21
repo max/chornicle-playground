@@ -1,6 +1,16 @@
 import {nanoid} from 'nanoid'
 import {useCallback, useState} from 'react'
 import CodeMirror from '@uiw/react-codemirror'
+import {slashCommands} from '../plugins/slashCommands'
+
+const completions = [
+  {label: '@adam'},
+  {label: '@geoffrey'},
+  {label: '@max'},
+  {label: '@paul'},
+  {label: '/branch [name]'},
+  {label: '/milestone [name]'}
+]
 
 type Item = {
   id: string
@@ -49,18 +59,10 @@ function ItemComposer({onSubmit}: {onSubmit: (item: Item) => void}) {
           lineNumbers: false
         }}
         className="rounded border-none bg-white shadow"
+        extensions={[slashCommands(completions)]}
         onChange={onChange}
         value={newItem}
       />
-      {/* <input
-        className="border-none bg-white shadow"
-        onChange={(e) => {
-          setNewItem(e.target.value)
-        }}
-        placeholder="Add comment..."
-        type="text"
-        value={newItem}
-      /> */}
     </form>
   )
 }
