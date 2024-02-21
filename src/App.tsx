@@ -1,7 +1,7 @@
 // import EditorLayoutExperiment from './components/EditorLayoutExperiment'
 // import PullRequestExperiment from './components/PullRequestExperiment'
 // import HistoryFilterExperiment from './components/HistoryFilterExperiment'
-import ChatViewExperiment from './components/ChatViewExperiment.tsx'
+import ChatViewExperiment from './components/ChatViewExperiment'
 
 function App() {
   // return <EditorLayoutExperiment />
