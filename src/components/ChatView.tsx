@@ -1,5 +1,6 @@
 import {nanoid} from 'nanoid'
-import {useState} from 'react'
+import {useCallback, useState} from 'react'
+import CodeMirror from '@uiw/react-codemirror'
 
 type Item = {
   id: string
@@ -20,6 +21,10 @@ const itemsFixture: Item[] = [
 function ItemComposer({onSubmit}: {onSubmit: (item: Item) => void}) {
   const [newItem, setNewItem] = useState<string>('')
 
+  const onChange = useCallback((val, viewUpdate) => {
+    setNewItem(val)
+  }, [])
+
   return (
     <form
       onSubmit={(e) => {
@@ -37,7 +42,17 @@ function ItemComposer({onSubmit}: {onSubmit: (item: Item) => void}) {
         }
       }}
     >
-      <input
+      <CodeMirror
+        basicSetup={{
+          foldGutter: false,
+          highlightActiveLine: false,
+          lineNumbers: false
+        }}
+        className="rounded border-none bg-white shadow"
+        onChange={onChange}
+        value={newItem}
+      />
+      {/* <input
         className="border-none bg-white shadow"
         onChange={(e) => {
           setNewItem(e.target.value)
@@ -45,7 +60,7 @@ function ItemComposer({onSubmit}: {onSubmit: (item: Item) => void}) {
         placeholder="Add comment..."
         type="text"
         value={newItem}
-      />
+      /> */}
     </form>
   )
 }
